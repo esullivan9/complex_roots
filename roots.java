@@ -5,7 +5,7 @@ public class roots
 {
 	public static void main(String[] args)
 	{
-		double 	x, y, n, theta;
+		double 	x, y, n;
 		Scanner s = new Scanner(System.in);
 
 		System.out.print("Enter the value of x: ");
@@ -19,17 +19,16 @@ public class roots
 		{
 			ArrayList<String> Roots = new ArrayList<>();
 		
-			System.out.println("Your complex number is " + x + " + " + y + "i.");
+			System.out.println("The complex number is " + x + " + " + y + "i.");
 			
-			theta = getTheta(x, y);
-			Roots = root(x, y, theta, n);
+			Roots = root(x, y, getTheta(x, y), n);
 
 			System.out.println("The roots are: ");
 			for(int i = 0; i< Roots.size(); i++)
 				System.out.println(Roots.get(i));
 		}
 		else
-			System.out.println("The value of n cannot be negative.");
+			System.out.println("The value of n cannot be negative (or zero).");
 		
 		s.close();
 	}		
@@ -52,7 +51,7 @@ public class roots
 		else if(y == 0)
 		{
 			if(x > 0)
-				return 0;
+				return 0.0;
 			else
 				return Math.PI;
 		}
@@ -63,7 +62,7 @@ public class roots
 	public static ArrayList<String> root(double x, double y, double theta, double n)
 	{
 		double a, b, k, p, Q;
-		String d_root = "";
+		String d_root;
 		ArrayList<String> outRoot = new ArrayList<>();
 
 		Q = Math.pow(x,2)+Math.pow(y,2);
