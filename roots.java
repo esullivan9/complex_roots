@@ -21,74 +21,77 @@ public class roots
 		
 		System.out.println("Your complex number is " + x + " + " + y + "i.");
 		
-		P = 1/(2*n);
+		if(n > 0)
+		{
+			P = 1/(2*n);
 
-		if((x > 0 && y > 0) || (x > 0 && y < 0))
-		{
-			theta = Math.atan(y/x);
-			Q = newQ(x,y);
-		
-			Roots = root(Q,P,theta,n);
-		}
-		else if(x < 0 && y > 0)
-		{
-			theta = Math.PI - Math.abs(Math.atan(y/x));
-			Q = newQ(x,y);
+			if((x > 0 && y > 0) || (x > 0 && y < 0))
+			{
+				theta = Math.atan(y/x);
+				Q = newQ(x,y);
 			
-			Roots = root(Q,P,theta,n);			
-		}
-		else if(x < 0 && y < 0)
-		{
-			theta = Math.atan(y/x) - Math.PI;
-			Q = newQ(x,y);
-			
-			Roots = root(Q,P,theta,n);		
-		}
-		else if(x == 0)
-		{
-			if(y > 0)
-			{
-				theta = Math.PI/2;
-				Q = newQ(0,y);
-				
 				Roots = root(Q,P,theta,n);
 			}
-			else
+			else if(x < 0 && y > 0)
 			{
-				theta = -(Math.PI/2);
-				Q = newQ(0,y);
+				theta = Math.PI - Math.abs(Math.atan(y/x));
+				Q = newQ(x,y);
 				
-				Roots = root(Q,P,theta,n);
+				Roots = root(Q,P,theta,n);			
 			}
-		}
-		else if(y == 0)
-		{
-			if(x > 0)
+			else if(x < 0 && y < 0)
 			{
-				theta = 0;
-				Q = newQ(x,0);
+				theta = Math.atan(y/x) - Math.PI;
+				Q = newQ(x,y);
 				
-				Roots = root(Q,P,theta,n);
+				Roots = root(Q,P,theta,n);		
 			}
-			else
+			else if(x == 0)
 			{
-				theta = Math.PI;
-				Q = newQ(x,0);
-				
-				Roots = root(Q,P,theta,n);
+				if(y > 0)
+				{
+					theta = Math.PI/2;
+					Q = newQ(0,y);
+					
+					Roots = root(Q,P,theta,n);
+				}
+				else
+				{
+					theta = -(Math.PI/2);
+					Q = newQ(0,y);
+					
+					Roots = root(Q,P,theta,n);
+				}
 			}
-		}
+			else if(y == 0)
+			{
+				if(x > 0)
+				{
+					theta = 0;
+					Q = newQ(x,0);
+					
+					Roots = root(Q,P,theta,n);
+				}
+				else
+				{
+					theta = Math.PI;
+					Q = newQ(x,0);
+					
+					Roots = root(Q,P,theta,n);
+				}
+			}
 
-		for(int i = 0; i< Roots.size(); i++)
-			System.out.println(Roots.get(i));
-
+			for(int i = 0; i< Roots.size(); i++)
+				System.out.println(Roots.get(i));
+		}
+		else
+			System.out.println("The value of n cannot be negative.");
 	}		
 	
 	public static double newQ(double x, double y)
 	{
 		return Math.pow(x,2)+Math.pow(y,2);
 	}
-
 
 	public static ArrayList<String> root(double Q, double P, double theta, double n)
 	{
