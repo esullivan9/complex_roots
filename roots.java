@@ -1,7 +1,7 @@
 import java.lang.Math;
 import java.util.*;
 
-public class complex_roots
+public class roots
 {
 	public static void main(String[] args)
 	{
