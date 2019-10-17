@@ -5,105 +5,74 @@ public class roots
 {
 	public static void main(String[] args)
 	{
-		double 	x, y, n, Q, P, theta;
-		
-		if(args.length == 0 || args.length < 3)
-		{
-			System.out.println("Usage: java roots <x value> <y value> <desired root>");
-			System.exit(0);
-		}
-		
-		x = Double.valueOf(args[0]);
-		y = Double.valueOf(args[1]);
-		n = Double.valueOf(args[2]);
+		double 	x, y, n, theta;
+		Scanner s = new Scanner(System.in);
 
-		ArrayList<String> Roots = new ArrayList<>();
-		
-		System.out.println("Your complex number is " + x + " + " + y + "i.");
+		System.out.print("Enter the value of x: ");
+		x = s.nextDouble();
+		System.out.print("Enter the value of y: ");
+		y = s.nextDouble();
+		System.out.print("Enter the desired root: ");
+		n = s.nextDouble();
 		
 		if(n > 0)
 		{
-			P = 1/(2*n);
-
-			if((x > 0 && y > 0) || (x > 0 && y < 0))
-			{
-				theta = Math.atan(y/x);
-				Q = newQ(x,y);
+			ArrayList<String> Roots = new ArrayList<>();
+		
+			System.out.println("Your complex number is " + x + " + " + y + "i.");
 			
-				Roots = root(Q,P,theta,n);
-			}
-			else if(x < 0 && y > 0)
-			{
-				theta = Math.PI - Math.abs(Math.atan(y/x));
-				Q = newQ(x,y);
-				
-				Roots = root(Q,P,theta,n);			
-			}
-			else if(x < 0 && y < 0)
-			{
-				theta = Math.atan(y/x) - Math.PI;
-				Q = newQ(x,y);
-				
-				Roots = root(Q,P,theta,n);		
-			}
-			else if(x == 0)
-			{
-				if(y > 0)
-				{
-					theta = Math.PI/2;
-					Q = newQ(0,y);
-					
-					Roots = root(Q,P,theta,n);
-				}
-				else
-				{
-					theta = -(Math.PI/2);
-					Q = newQ(0,y);
-					
-					Roots = root(Q,P,theta,n);
-				}
-			}
-			else if(y == 0)
-			{
-				if(x > 0)
-				{
-					theta = 0;
-					Q = newQ(x,0);
-					
-					Roots = root(Q,P,theta,n);
-				}
-				else
-				{
-					theta = Math.PI;
-					Q = newQ(x,0);
-					
-					Roots = root(Q,P,theta,n);
-				}
-			}
+			theta = getTheta(x, y);
+			Roots = root(x, y, theta, n);
 
+			System.out.println("The roots are: ");
 			for(int i = 0; i< Roots.size(); i++)
 				System.out.println(Roots.get(i));
 		}
 		else
 			System.out.println("The value of n cannot be negative.");
+		
+		s.close();
 	}		
-	
-	public static double newQ(double x, double y)
-	{
-		return Math.pow(x,2)+Math.pow(y,2);
-	}
 
-	public static ArrayList<String> root(double Q, double P, double theta, double n)
+	public static double getTheta(double x, double y)
 	{
-		double a, b, k;
+		if((x > 0 && y > 0) || (x > 0 && y < 0))
+			return Math.atan(y/x);
+		else if(x < 0 && y > 0)
+			return Math.PI - Math.abs(Math.atan(y/x));
+		else if(x < 0 && y < 0)
+			return Math.atan(y/x) - Math.PI;
+		else if(x == 0)
+		{
+			if(y > 0)
+				return Math.PI/2;
+			else
+				return -(Math.PI/2);
+		}
+		else if(y == 0)
+		{
+			if(x > 0)
+				return 0;
+			else
+				return Math.PI;
+		}
+		else
+			return 0.0;
+	}
+	
+	public static ArrayList<String> root(double x, double y, double theta, double n)
+	{
+		double a, b, k, p, Q;
 		String d_root = "";
 		ArrayList<String> outRoot = new ArrayList<>();
+
+		Q = Math.pow(x,2)+Math.pow(y,2);
+		p = 1/(2*n);
 		
 		for(k = 0; k < n; k++)
 		{
-			a = Math.pow(Q,P)*Math.cos((theta+2*Math.PI*k)/n);
-			
-			b = Math.pow(Q,P)*Math.sin((theta+2*Math.PI*k)/n);
+			a = Math.pow(Q,p)*Math.cos((theta+2*Math.PI*k)/n);
+			b = Math.pow(Q,p)*Math.sin((theta+2*Math.PI*k)/n);
 			
 			if(b < 0)
 				d_root = a + "-" + Math.abs(b) + "i";
