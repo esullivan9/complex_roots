@@ -5,7 +5,7 @@ public class roots
 {
 	public static void main(String[] args)
 	{
-		double 	x2, y2, n, Q, P, theta;
+		double 	x, y, n, Q, P, theta;
 		
 		if(args.length == 0 || args.length < 3)
 		{
@@ -13,67 +13,67 @@ public class roots
 			System.exit(0);
 		}
 		
+		x = Double.valueOf(args[0]);
+		y = Double.valueOf(args[1]);
+		n = Double.valueOf(args[2]);
+
 		ArrayList<String> Roots = new ArrayList<>();
 		
-		x2 = Double.valueOf(args[0]);
-		y2 = Double.valueOf(args[1]);
-		n = Double.valueOf(args[2]);
-		
-		System.out.println("Your complex number is " + x2 + " + " + y2 + "i.");
+		System.out.println("Your complex number is " + x + " + " + y + "i.");
 		
 		P = 1/(2*n);
 
-		if((x2 > 0 && y2 > 0) || (x2 > 0 && y2 < 0))
+		if((x > 0 && y > 0) || (x > 0 && y < 0))
 		{
-			theta = Math.atan(y2/x2);
-			Q = Math.pow(x2,2)+Math.pow(y2,2);
+			theta = Math.atan(y/x);
+			Q = newQ(x,y);
 		
 			Roots = root(Q,P,theta,n);
 		}
-		else if(x2 < 0 && y2 > 0)
+		else if(x < 0 && y > 0)
 		{
-			theta = Math.PI - Math.abs(Math.atan(y2/x2));
-			Q = Math.pow(x2,2)+Math.pow(y2,2);
+			theta = Math.PI - Math.abs(Math.atan(y/x));
+			Q = newQ(x,y);
 			
 			Roots = root(Q,P,theta,n);			
 		}
-		else if(x2 < 0 && y2 < 0)
+		else if(x < 0 && y < 0)
 		{
-			theta = Math.atan(y2/x2) - Math.PI;
-			Q = Math.pow(x2,2)+Math.pow(y2,2);
+			theta = Math.atan(y/x) - Math.PI;
+			Q = newQ(x,y);
 			
 			Roots = root(Q,P,theta,n);		
 		}
-		else if(x2 == 0)
+		else if(x == 0)
 		{
-			if(y2 > 0)
+			if(y > 0)
 			{
 				theta = Math.PI/2;
-				Q = Math.pow(y2,2);
+				Q = newQ(0,y);
 				
 				Roots = root(Q,P,theta,n);
 			}
 			else
 			{
 				theta = -(Math.PI/2);
-				Q = Math.pow(y2,2);
+				Q = newQ(0,y);
 				
 				Roots = root(Q,P,theta,n);
 			}
 		}
-		else if(y2 == 0)
+		else if(y == 0)
 		{
-			if(x2 > 0)
+			if(x > 0)
 			{
 				theta = 0;
-				Q = Math.pow(x2,2);
+				Q = newQ(x,0);
 				
 				Roots = root(Q,P,theta,n);
 			}
 			else
 			{
 				theta = Math.PI;
-				Q = Math.pow(x2,2);
+				Q = newQ(x,0);
 				
 				Roots = root(Q,P,theta,n);
 			}
@@ -84,6 +84,12 @@ public class roots
 
 	}		
 	
+	public static double newQ(double x, double y)
+	{
+		return Math.pow(x,2)+Math.pow(y,2);
+	}
+
+
 	public static ArrayList<String> root(double Q, double P, double theta, double n)
 	{
 		double a, b, k;
