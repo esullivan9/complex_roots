@@ -27,7 +27,6 @@ public class roots
 		
 		System.out.println("Your complex number is " + x2 + " + " + y2 + "i.");
 		
-		//Determining theta
 		if((x2 > 0 && y2 > 0) || (x2 > 0 && y2 < 0))
 		{
 			theta = Math.atan(y2/x2);
@@ -90,8 +89,6 @@ public class roots
 				Roots = root(Q,P,theta,n);
 			}
 		}
-		else
-			System.out.println("You should never see this...");
 
 		for(int i = 0; i< Roots.size(); i++)
 			System.out.println(Roots.get(i));
