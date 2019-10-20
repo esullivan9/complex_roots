@@ -1,3 +1,13 @@
+/**
+ * A simple program to calculate the nth root of a complex number. 
+ * 
+ * The user must enter the x and y of the complex number and the root 
+ * that they wish to find (i.e. for the square root, the user would
+ * enter 2 when prompted to for the desired root). 
+ * 
+ * Created by Eric Sullivan on October 19th, 2019.
+ */
+
 import java.lang.Math;
 import java.util.*;
 
