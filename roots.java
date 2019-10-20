@@ -95,11 +95,11 @@ public class roots
 	 * then adds them to an arraylist. This arraylist contains all roots of the 
 	 * given complex number. Once all the roots are calculated, the arraylist containing
 	 * the roots is then returned.
-	 * @param x
-	 * @param y
-	 * @param theta
-	 * @param n
-	 * @return
+	 * @param x The x value of the entered complex number.
+	 * @param y The y value of the entered complex number.
+	 * @param theta The angle formed by the complex number when plotted in the complex plane.
+	 * @param n The root the user requested. 
+	 * @return An arraylist of strings of the values of the roots of the given complex number.
 	 */
 	public static ArrayList<String> root(double x, double y, double theta, double n)
 	{
