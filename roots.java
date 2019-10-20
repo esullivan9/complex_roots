@@ -108,7 +108,7 @@ public class roots
 	 */
 	public static ArrayList<String> root(double x, double y, double theta, double n)
 	{
-		double a, b, k, p, Q;
+		double a, a2, b, b2, k, p, Q;
 		String d_root;
 		ArrayList<String> outRoot = new ArrayList<>();
 
@@ -117,13 +117,18 @@ public class roots
 		
 		for(k = 0; k < n; k++)
 		{
+			//Root of the complex number in the form a + bi
 			a = Math.pow(Q,p)*Math.cos((theta+2*Math.PI*k)/n);
 			b = Math.pow(Q,p)*Math.sin((theta+2*Math.PI*k)/n);
 			
+			//Rounds the values of a and b to 12 decimal places
+			a2 = Math.round(a * 100000000000d) / 100000000000d;
+			b2 = Math.round(b * 100000000000d) / 100000000000d;
+
 			if(b < 0)
-				d_root = a + "-" + Math.abs(b) + "i";
+				d_root = a2 + "-" + Math.abs(b2) + "i";
 			else
-				d_root = a + "+" + b + "i";
+				d_root = a2 + "+" + b2 + "i";
 			
 			outRoot.add(d_root);
 		}
