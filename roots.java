@@ -40,7 +40,7 @@ public class roots
 
 				//Prints the roots of the user's complex number to the screen.
 				System.out.println("The roots are: ");
-				for(int i = 0; i< (int) n; i++)
+				for(int i = 0; i < (int) n; i++)
 					System.out.println(Roots.get(i));
 			}
 			else
@@ -91,7 +91,10 @@ public class roots
 	}
 	
 	/**
-	 * 
+	 * Calculates the roots of the given complex number, converts them to a string
+	 * then adds them to an arraylist. This arraylist contains all roots of the 
+	 * given complex number. Once all the roots are calculated, the arraylist containing
+	 * the roots is then returned.
 	 * @param x
 	 * @param y
 	 * @param theta
