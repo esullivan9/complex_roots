@@ -18,31 +18,52 @@ public class roots
 		double 	x, y, n;
 		Scanner s = new Scanner(System.in);
 
-		System.out.print("Enter the value of x: ");
-		x = s.nextDouble();
-		System.out.print("Enter the value of y: ");
-		y = s.nextDouble();
-		System.out.print("Enter the desired root: ");
-		n = s.nextDouble();
-		
-		if(n > 0)
+		try
 		{
-			ArrayList<String> Roots = new ArrayList<>();
-		
-			System.out.println("The complex number is " + x + " + " + y + "i.");
+			System.out.print("Enter the value of x: ");
+			x = s.nextDouble();
+			System.out.print("Enter the value of y: ");
+			y = s.nextDouble();
+			System.out.print("Enter the desired root: ");
+			n = s.nextDouble();
 			
-			Roots = root(x, y, getTheta(x, y), n);
+			//Checks the value of n.
+			if(n > 0)
+			{
+				//Creates the arraylist for the roots of the user's complex number.
+				ArrayList<String> Roots = new ArrayList<>((int) n);
+			
+				System.out.println("The complex number is " + x + " + " + y + "i.");
+				
+				//Calculates the roots of the user's complex number.
+				Roots = root(x, y, getTheta(x, y), n);
 
-			System.out.println("The roots are: ");
-			for(int i = 0; i< Roots.size(); i++)
-				System.out.println(Roots.get(i));
+				//Prints the roots of the user's complex number to the screen.
+				System.out.println("The roots are: ");
+				for(int i = 0; i< (int) n; i++)
+					System.out.println(Roots.get(i));
+			}
+			else
+				System.out.println("The value of n cannot be negative (or zero).");
+			
+			//Close the scanner.
+			s.close();
 		}
-		else
-			System.out.println("The value of n cannot be negative (or zero).");
-		
-		s.close();
+		catch(InputMismatchException e)
+		{
+			System.out.println("All inputs are numbers only!");
+		}
 	}		
 
+	/**
+	 * Determines the sutiable value for theta, the angle formed by the 
+	 * user's complex number in the complex plane, based on the x and y
+	 * values of the user's complex number.
+	 * 
+	 * @param x	The x value of the entered complex number.
+	 * @param y The y value of the entered complex number.
+	 * @return	The sutiable value of theta.
+	 */
 	public static double getTheta(double x, double y)
 	{
 		if((x > 0 && y > 0) || (x > 0 && y < 0))
@@ -69,6 +90,14 @@ public class roots
 			return 0.0;
 	}
 	
+	/**
+	 * 
+	 * @param x
+	 * @param y
+	 * @param theta
+	 * @param n
+	 * @return
+	 */
 	public static ArrayList<String> root(double x, double y, double theta, double n)
 	{
 		double a, b, k, p, Q;
