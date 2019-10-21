@@ -1,11 +1,13 @@
 /**
- * A simple program to calculate the nth root of a complex number of the form z = x + yi. 
+ * A simple program to calculate the nth root of a complex 
+ * number of the form z = x + yi. 
  * 
- * The user must enter the x and y of the complex number and the root 
- * that they wish to find (i.e. for the square root, the user would
- * enter 2 when prompted to for the desired root). 
+ * The user must enter the x and y of the complex number and 
+ * the root that they wish to find.
+ * (For the second root, the user would enter 2 for n).
  * 
  * Created by Eric Sullivan on October 19th, 2019.
+ *
  */
 
 import java.lang.Math;
@@ -14,8 +16,9 @@ import java.util.*;
 public class roots
 {
 	/**
-	 * Takes prompted user input and calculates the desired roots of a user
-	 * specified complex number, then displayes those roots to the screen.
+	 * Takes prompted (from the command line) user input and calculates the 
+	 * desired roots of a user specified complex number, then displayes those 
+	 * roots to the screen.
 	 * @param args Main does not take command line arguments.
 	 */
 	public static void main(String[] args)
