@@ -125,11 +125,13 @@ public class roots
 			a2 = Math.round(a * 100000000000d) / 100000000000d;
 			b2 = Math.round(b * 100000000000d) / 100000000000d;
 
+			//Root is recorded as a string
 			if(b < 0)
 				d_root = a2 + "-" + Math.abs(b2) + "i";
 			else
 				d_root = a2 + "+" + b2 + "i";
 			
+			//Root is added to the arraylist of roots
 			outRoot.add(d_root);
 		}
 
