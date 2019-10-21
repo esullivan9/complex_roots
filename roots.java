@@ -19,7 +19,7 @@ public class roots
 	 * Takes prompted (from the command line) user input and calculates the 
 	 * desired roots of a user specified complex number, then displayes those 
 	 * roots to the screen.
-	 * @param args Main does not take command line arguments.
+	 * @param args 	Main does not take command line arguments.
 	 */
 	public static void main(String[] args)
 	{
@@ -68,9 +68,9 @@ public class roots
 	 * user's complex number in the complex plane, based on the x and y
 	 * values of the user's complex number.
 	 * 
-	 * @param x	The x value of the entered complex number.
-	 * @param y The y value of the entered complex number.
-	 * @return	The sutiable value of theta.
+	 * @param x		The x value of the entered complex number.
+	 * @param y 	The y value of the entered complex number.
+	 * @return		The sutiable value of theta.
 	 */
 	public static double getTheta(double x, double y)
 	{
@@ -103,11 +103,11 @@ public class roots
 	 * then adds them to an arraylist. This arraylist contains all roots of the 
 	 * given complex number. Once all the roots are calculated, the arraylist containing
 	 * the roots is then returned.
-	 * @param x The x value of the entered complex number.
-	 * @param y The y value of the entered complex number.
+	 * @param x 	The x value of the entered complex number.
+	 * @param y 	The y value of the entered complex number.
 	 * @param theta The angle formed by the complex number when plotted in the complex plane.
-	 * @param n The root the user requested. 
-	 * @return An arraylist of strings of the values of the roots of the given complex number.
+	 * @param n 	The root the user requested. 
+	 * @return 		An arraylist of strings of the values of the roots of the given complex number.
 	 */
 	public static ArrayList<String> root(double x, double y, double theta, double n)
 	{
