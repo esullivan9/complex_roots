@@ -12,8 +12,7 @@ A complex number has the forms:
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-This program takes a complex number (the value for x and y entered by the user) in and finds the nth roots (n is a value entered by the 
-user) of it. 
+This program takes a complex number (the user enters the values for x and y) in and finds the nth roots (n is entered by the user) of it. 
 
 The user inputs values for x and y, which determine what complex number will be used. The program then displays the complex 
 number using the values of x and y which the user entered (ex: if the user entered 3 for x and -2 for y, the program would 
