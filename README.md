@@ -12,14 +12,15 @@ A complex number has the forms:
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-This program takes a complex number (entered by the user) in form #1 and finds the nth roots (n is a value entered by the user) of it. 
+This program takes a complex number (the value for x and y entered by the user) in and finds the nth roots (n is a value entered by the 
+user) of it. 
 
 The user inputs values for x and y, which determine what complex number will be used. The program then displays the complex 
 number using the values of x and y which the user entered (ex: if the user entered 3 for x and -2 for y, the program would 
 tell them that their complex number is 3+-2i). It then prompts them for the root they which to find (ex: if the user enters 
 a 2, they have requested for the second roots of their complex number) and after they have entered this value, the program 
-will display to the screen the roots (in the form z = x + yi) for the selected complex number. The number of roots that will be displayed
-is determined by the value of n; thus, the number of roots displayed is equal to n - 1.
+will display to the screen the roots (in the form z = x + yi) for the selected complex number. The number of roots that will 
+be displayed is determined by the value of n; thus, the number of roots displayed is equal to n - 1.
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 Example: A user enters 3 for x, -5 for y and 4 for n. 
