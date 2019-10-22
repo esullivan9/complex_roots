@@ -6,7 +6,7 @@
  * the root that they wish to find.
  * (For the second root, the user would enter 2 for n).
  * 
- * Created by Eric Sullivan on October 19th, 2019.
+ * Created by Eric Sullivan on October 22nd, 2019.
  *
  */
 
@@ -16,9 +16,9 @@ import java.util.*;
 public class roots
 {
 	/**
-	 * Takes prompted (from the command line) user input and calculates the 
-	 * desired roots of a user specified complex number, then displayes those 
-	 * roots to the screen.
+	 * Takes prompted user input (from the command line) and calculates the 
+	 * desired roots of a specified complex number (which the user also selects),
+	 * then displayes those roots to the screen.
 	 * @param args Main does not take command line arguments.
 	 */
 	public static void main(String[] args)
@@ -41,7 +41,12 @@ public class roots
 				//Creates the arraylist for the roots of the user's complex number.
 				ArrayList<String> Roots = new ArrayList<>((int) n);
 			
-				System.out.println("The complex number is " + x + " + " + y + "i.");
+				//Displays the user's complex number to the screen.
+				System.out.println("");
+				if(y > 0)
+					System.out.println("The complex number is " + x + " + " + y + "i.");
+				else
+					System.out.println("The complex number is " + x + " - " + Math.abs(y) + "i.");
 				
 				//Calculates the roots of the user's complex number.
 				Roots = root(x, y, getTheta(x, y), n);
@@ -124,7 +129,7 @@ public class roots
 			a = Math.pow(Q,p)*Math.cos((theta+2*Math.PI*k)/n);
 			b = Math.pow(Q,p)*Math.sin((theta+2*Math.PI*k)/n);
 			
-			//Rounds the values of a and b to 12 decimal places
+			//Rounds the values of a and b to 11 decimal places
 			a2 = Math.round(a * 100000000000d) / 100000000000d;
 			b2 = Math.round(b * 100000000000d) / 100000000000d;
 
