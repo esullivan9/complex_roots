@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"<Unnamed>","c":"roots","l":"getTheta(double, double)"},{"p":"<Unnamed>","c":"roots","l":"main(String[])","url":"main-java.lang.String:A-"},{"p":"<Unnamed>","c":"roots","l":"root(double, double, double, double)"},{"p":"<Unnamed>","c":"roots","l":"roots()"}]
