@@ -9,7 +9,6 @@
  * Created by Eric Sullivan on October 22nd, 2019.
  *
  */
-
 import java.lang.Math;
 import java.util.*;
 
@@ -58,7 +57,6 @@ public class roots
 
 				//Empty the arraylist of roots.
 				Roots.clear();
-
 			}
 			else
 				System.out.println("The value of n cannot be negative (or zero).");
